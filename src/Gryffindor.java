@@ -1,13 +1,13 @@
 import java.util.Objects;
 
-public class gryffindor extends hogwarts {
+public class Gryffindor extends Hogwarts {
 
     private int nobility;
     private int honor;
     private int bravery;
     private final int numbFaculty=1;
 
-    public gryffindor (int magicPower,int transgression,String fullName,int nobility,int honor,int bravery){
+    public Gryffindor(int magicPower, int transgression, String fullName, int nobility, int honor, int bravery){
         super( magicPower, transgression,fullName);
         this.nobility=nobility;
         this.honor=honor;
@@ -54,7 +54,7 @@ public class gryffindor extends hogwarts {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o==null&&getClass()!=o.getClass()) return false;
-        gryffindor that = (gryffindor) o;
+        Gryffindor that = (Gryffindor) o;
         return getNobility() == that.getNobility() && getHonor() == that.getHonor() && getBravery() == that.getBravery()
                 && getMagicPower() == that.getMagicPower()&& getTransgression() == getTransgression();
     }
@@ -72,6 +72,15 @@ public class gryffindor extends hogwarts {
     public  int totalQuality(){
         int totalQuality=nobility+honor+bravery;
         return totalQuality;
+    }
+
+    public  void facultyDuel(Gryffindor other){
+        if (this.totalQuality()>other.totalQuality()){
+            System.out.println("СТУДЕНТ- "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ЛУЧШЕ: "+other);
+        } else if (this.totalQuality()<other.totalQuality()){System.out.println("СТУДЕНТ "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ХУЖЕ: "+other);}
+        else {
+            System.out.println("СТУДЕНТЫ РАВНЫ ПО КАЧЕСТВАМ ФАКУЛЬТЕТА");
+        }
     }
 
 }

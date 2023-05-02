@@ -1,13 +1,13 @@
 import java.util.Objects;
 
-public class hufflepuff extends hogwarts {
+public class Hufflepuff extends Hogwarts {
 
     private int diligence;
     private int loyalty;
     private int honesty;
     private final int numbFaculty=4;
 
-    public hufflepuff (int magicPower,int transgression,String fullName,int diligence,int loyalty,int honesty){
+    public Hufflepuff(int magicPower, int transgression, String fullName, int diligence, int loyalty, int honesty){
         super( magicPower, transgression,fullName);
         this.diligence=diligence;
         this.loyalty=loyalty;
@@ -46,15 +46,15 @@ public class hufflepuff extends hogwarts {
 
     @Override
     public String toString() {
-        return "Полное имя студента"+fullName+"Магическая сила"+magicPower+"Расстояние трансгресии"+transgression
-                +"Трудолюбие"+diligence+"Верность"+loyalty+"Честность"+honesty;
+        return "Полное имя студента "+fullName+" Магическая сила "+magicPower+" Расстояние трансгресии "+transgression
+                +" Трудолюбие "+diligence+" Верность "+loyalty+" Честность "+honesty;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o==null&&getClass()!=o.getClass()) return false;
-        hufflepuff that = (hufflepuff) o;
+        Hufflepuff that = (Hufflepuff) o;
         return getDiligence() == that.getDiligence() && getLoyalty() == that.getLoyalty() && getHonesty() == that.getHonesty()
                 && getMagicPower() == that.getMagicPower()&& getTransgression() == getTransgression();
     }
@@ -71,6 +71,15 @@ public class hufflepuff extends hogwarts {
     public  int totalQuality(){
         int totalQuality=diligence+loyalty+honesty;
         return totalQuality;
+    }
+
+    public  void facultyDuel(Hufflepuff other){
+        if (this.totalQuality()>other.totalQuality()){
+            System.out.println("СТУДЕНТ- "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ЛУЧШЕ: "+other);
+        } else if (this.totalQuality()<other.totalQuality()){System.out.println("СТУДЕНТ "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ХУЖЕ: "+other);}
+        else {
+            System.out.println("СТУДЕНТЫ РАВНЫ ПО КАЧЕСТВАМ ФАКУЛЬТЕТА");
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-public abstract class hogwarts {
+public abstract class Hogwarts {
 
     protected int magicPower;
     protected int transgression;
@@ -6,7 +6,7 @@ public abstract class hogwarts {
     protected int numbFaculty;
 
 
-    public hogwarts(int magicPower,int transgression,String fullName){
+    public Hogwarts(int magicPower, int transgression, String fullName){
         this.magicPower=magicPower;
         this.transgression=transgression;
         this.fullName=fullName;
@@ -27,5 +27,16 @@ public abstract class hogwarts {
 
     public abstract int totalSkill();
     public abstract  int totalQuality();
+
+    public  void hogwartsDuel(Hogwarts other){
+        if (this.totalSkill()>other.totalSkill()){System.out.println("СТУДЕНТ- "+this+" ПО ОБЩИМ КАЧЕСТВАМ  ЛУЧШЕ: "+other);
+        } else if (this.totalSkill()<other.totalSkill()){System.out.println("СТУДЕНТ- "+this+" ПО ОБЩИМ КАЧЕСТВАМ ХУЖЕ: "+other);}
+        else {System.out.println("СТУДЕНТ РАВНЫ ПО ОБЩИМ КАЧЕСТВАМ");
+        }
+    }
+
+    public  void printStudent(){
+        System.out.println(this.toString());
+    }
 }
 

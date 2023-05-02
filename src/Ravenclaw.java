@@ -1,13 +1,13 @@
 import java.util.Objects;
 
-public class ravenclaw extends hogwarts {
+public class Ravenclaw extends Hogwarts {
     private int mind;
     private int wisdom;
     private int  wit;
     private int  creativity;
     private final int numbFaculty=3;
 
-    public ravenclaw (int magicPower,int transgression,String fullName,int mind,int wisdom,int wit,
+    public Ravenclaw(int magicPower, int transgression, String fullName, int mind, int wisdom, int wit,
                      int  creativity){
         super( magicPower, transgression,fullName);
         this.mind=mind;
@@ -53,16 +53,16 @@ public class ravenclaw extends hogwarts {
 
     @Override
     public String toString() {
-        return "Полное имя студента"+fullName+"Магическая сила"+magicPower+"Расстояние трансгресии"+transgression
-                +"Ум"+mind+"Мудрость"+wisdom+"Остроумие"+wit
-                +"Творчество"+creativity;
+        return "Полное имя студента "+fullName+" Магическая сила "+magicPower+" Расстояние трансгресии "+transgression
+                +" Ум "+mind+" Мудрость "+wisdom+" Остроумие "+wit
+                +" Творчество "+creativity;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o==null&&getClass()!=o.getClass()) return false;
-        ravenclaw that = (ravenclaw) o;
+        Ravenclaw that = (Ravenclaw) o;
         return getMind() == that.getMind() && getWisdom() == that.getWisdom() && getWit() == that.getWit()
                 && getMagicPower() == that.getMagicPower()&& getTransgression() == getTransgression()
                 && geCreativity() == that.geCreativity();
@@ -81,5 +81,14 @@ public class ravenclaw extends hogwarts {
         int totalQuality=mind+wisdom+wit
                 +creativity;
         return totalQuality;
+    }
+
+    public  void facultyDuel(Ravenclaw other){
+        if (this.totalQuality()>other.totalQuality()){
+            System.out.println("СТУДЕНТ- "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ЛУЧШЕ: "+other);
+        } else if (this.totalQuality()<other.totalQuality()){System.out.println("СТУДЕНТ "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ХУЖЕ: "+other);}
+        else {
+            System.out.println("СТУДЕНТЫ РАВНЫ ПО КАЧЕСТВАМ ФАКУЛЬТЕТА");
+        }
     }
 }

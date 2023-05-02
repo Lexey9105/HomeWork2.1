@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class сlizaren extends hogwarts {
+public class Slizaren extends Hogwarts {
     private int cunning;
     private int determination;
     private int  ambition;
@@ -8,8 +8,8 @@ public class сlizaren extends hogwarts {
     private int  thirstPower;
     private final int numbFaculty=2;
 
-    public сlizaren (int magicPower,int transgression,String fullName,int cunning,int determination,int ambition,
-                       int  resourcefulness,int  thirstPower){
+    public Slizaren(int magicPower, int transgression, String fullName, int cunning, int determination, int ambition,
+                    int  resourcefulness, int  thirstPower){
         super( magicPower, transgression,fullName);
         this.cunning=cunning;
         this.determination=determination;
@@ -56,16 +56,16 @@ public class сlizaren extends hogwarts {
 
     @Override
     public String toString() {
-        return "Полное имя студента"+fullName+"Магическая сила"+magicPower+"Расстояние трансгресии"+transgression
-                +"Хитрость"+cunning+"Решительность"+determination+"Амбициозность"+ambition
-                +"Решительность"+resourcefulness+"Жажда власти"+thirstPower;
+        return "Полное имя студента "+fullName+" Магическая сила "+magicPower+" Расстояние трансгресии "+transgression
+                +" Хитрость "+cunning+" Решительность "+determination+" Амбициозность "+ambition
+                +" Решительность "+resourcefulness+" Жажда власти "+thirstPower;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o==null&&getClass()!=o.getClass()) return false;
-        сlizaren that = (сlizaren) o;
+        Slizaren that = (Slizaren) o;
         return getCunning() == that.getCunning() && getDetermination() == that.getDetermination() && getAmbition() == that.getAmbition()
                 && getMagicPower() == that.getMagicPower()&& getTransgression() == getTransgression()
                 && getResourcefulness() == that.getResourcefulness()&& getThirstPower() == that.getThirstPower();
@@ -84,5 +84,14 @@ public class сlizaren extends hogwarts {
         int totalQuality=cunning+determination+ambition
                 +resourcefulness+thirstPower;
         return totalQuality;
+    }
+
+    public  void facultyDuel(Slizaren other){
+        if (this.totalQuality()>other.totalQuality()){
+            System.out.println("СТУДЕНТ- "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ЛУЧШЕ: "+other);
+        } else if (this.totalQuality()<other.totalQuality()){System.out.println("СТУДЕНТ "+this+" ПО КАЧЕСТВАМ ФАКУЛЬТЕТА ХУЖЕ: "+other);}
+        else {
+            System.out.println("СТУДЕНТЫ РАВНЫ ПО КАЧЕСТВАМ ФАКУЛЬТЕТА");
+        }
     }
 }
